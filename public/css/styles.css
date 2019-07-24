@@ -1,0 +1,17 @@
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.container {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}

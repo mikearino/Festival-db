@@ -1,0 +1,29 @@
+<h2>Welcome to the Woodland Mists Festival homepage!</h2>
+
+<h3>There will be shows every hour from 3:00 pm to 9:00</h3>
+<p>Check out show info</p>
+<% if @artists.any? %>
+  <table>
+    <tr>
+      <th>Artist</th><th>Stage</th><th>Time</th>
+    </tr>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td> <a href="artist/:<%= artist.name %>"><%= artist.name %></a> </td>
+        <td><%= artist.stage_number %></td>
+        <td><%= artist.time %></td>
+    </tr>
+    <% end %>
+  <table>
+<% else %>
+  <p>No shows.</p>
+<% end %>
+
+<p>Or ...</p>
+<ul>
+  <li> <a href="/search_by_stage">Search by stage</a> </li>
+  <li> <a href="/search_by_artist">Search artists</a> </li>
+  <li> <a href="/search_by_time">Search times</a> </li>
+</ul>
+
+<a href="/add_artist">Add a new artist</a><br>

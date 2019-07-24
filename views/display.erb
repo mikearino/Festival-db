@@ -1,0 +1,20 @@
+<h3>Shows</h3>
+
+<% if @artists.any? %>
+  <table>
+    <tr>
+      <th>Artist</th><th>Stage</th><th>Time</th>
+    </tr>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= artist.name %></td>
+        <td><%= artist.stage_number %></td>
+        <td><%= artist.time %></td>
+    </tr>
+    <% end %>
+  <table>
+<% else %>
+  <p>No matches.</p>
+<% end %>
+
+  <a href="/welcome">Return to home page</a>
