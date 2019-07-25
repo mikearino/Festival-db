@@ -50,12 +50,24 @@ get('/add_artist') do
   erb(:add_artist)
 end
 post ('/add_artist') do
-  Artist.add(params[:name], params[:stage_number], params[:time])
+  Artist.add(params[:name], params[:stage_number].to_i, params[:time])
   redirect to('/welcome')
 end
 get ('/artist/:name') do
-binding.pry
   @artist = Artist.find(params[:name].to_s.gsub(':',''))
-binding.pry
   erb(:artist)
+end
+get('/artist/:name/edit') do
+  @artist = Artist.find(params[:name].to_s.gsub(':',''))
+  erb(:edit_artist)
+end
+patch('/artist/:name/edit') do
+  @artist = Artist.find(params[:name].to_s.gsub(':',''))
+  @artist.update(params[:name], params[:stage_number].to_i, params[:time])
+  redirect to('/welcome')
+end
+delete('/delete/:name') do
+  @artist = Artist.find(params[:name].to_s.gsub(':',''))
+  @artist.delete()
+  redirect to('/welcome')
 end

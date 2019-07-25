@@ -1,0 +1,19 @@
+<h3>Edit artist</h3>
+<form action="/artist/<%= @artist.name %>/edit" type="hidden" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="name">Artist name</label>
+    <input name="name" class="form-control" type="text" value="<%= @artist.name %>">
+
+    <label for="stage_number">Stage Number</label>
+    <input name="stage_number" class="form-control" type="text" value="<%= @artist.stage_number %>">
+
+    <label for="time">Performance Time</label>
+    <input name="time" class="form-control" type="text" value="<%= @artist.time %>">
+  </div>
+  <button type="submit">Edit artist</button>
+</form>
+
+
+
+<a href="/welcome">Return to home page</a>

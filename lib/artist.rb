@@ -46,4 +46,12 @@ class Artist
   def ==(other_artist)
     (@name == other_artist.name) & (@stage_number == other_artist.stage_number) & (@time == other_artist.time)
   end
+  def update(name, stage_number, time)
+    @name = name
+    @stage_number = stage_number
+    @time = time
+  end
+  def delete
+    @@artists.delete(self)
+  end
 end
