@@ -1,10 +1,10 @@
 class Stage
-  attr_reader(:number)
-  def initialize(number)
-    @number = number
+  attr_accessor(:number)
+  def initialize(attributes)
+    @number = attributes.fetch(:number)
   end
 
   def artists
-    Artist.find_by_stage(number)
-  end    
+    Artist.find_by_stage(@number)
+  end
 end
